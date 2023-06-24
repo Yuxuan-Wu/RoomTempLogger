@@ -4,20 +4,22 @@
 <head>
 	<title>Room Temperature Logger</title>
 	<link rel="stylesheet" type="text/css" href="/styles.css">
-	<script>
-		var source = new EventSource('/temperature');
-		source.onmessage = function (event) {
-			document.getElementById('temperature').innerHTML = event.data;
-		};
-	</script>
 </head>
 
 <body>
 	<div class="container">
 		<h1 class="title">Room Temperature Logger</h1>
-		<p class="subtitle">Current temperature:</p>
-		<p class="temp"><span id="temperature">N/A</span> degrees</p>
+		<button id="toggleButton" onclick="toggleView()">Switch to History View</button>
+		<div id="currentTempView">
+			<p class="subtitle">Current temperature:</p>
+			<p class="temp"><span id="temperature">N/A</span> degrees</p>
+		</div>
+		<div id="historyView" style="display: none;">
+			<canvas id="tempChart"></canvas>
+		</div>
 	</div>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="./script.js"></script>
 </body>
 
 </html>
