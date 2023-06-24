@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Room Temperature Logger</title>
+	<script>
+		var source = new EventSource('/temperature');
+		source.onmessage = function (event) {
+			document.getElementById('temperature').innerHTML = event.data;
+		};
+	</script>
+</head>
+
+<body>
+	<h1>Hello, world!</h1>
+	<p>Current temperature: <span id="temperature">N/A</span> degrees</p>
+</body>
+
+</html>
