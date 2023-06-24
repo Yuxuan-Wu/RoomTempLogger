@@ -4,6 +4,7 @@ const { spawn } = require('child_process');
 const app = express();
 const port = 8080;
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 /** Temperature reader */
 let temperature = 'N/A';

@@ -3,6 +3,7 @@
 
 <head>
 	<title>Room Temperature Logger</title>
+	<link rel="stylesheet" type="text/css" href="/styles.css">
 	<script>
 		var source = new EventSource('/temperature');
 		source.onmessage = function (event) {
@@ -12,8 +13,11 @@
 </head>
 
 <body>
-	<h1>Hello, world!</h1>
-	<p>Current temperature: <span id="temperature">N/A</span> degrees</p>
+	<div class="container">
+		<h1 class="title">Room Temperature Logger</h1>
+		<p class="subtitle">Current temperature:</p>
+		<p class="temp"><span id="temperature">N/A</span> degrees</p>
+	</div>
 </body>
 
 </html>

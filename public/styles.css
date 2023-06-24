@@ -1,0 +1,25 @@
+body {
+   background-color: #f4f4f4;
+   font-family: Arial, sans-serif;
+}
+
+.container {
+   max-width: 600px;
+   margin: 0 auto;
+   padding: 20px;
+   text-align: center;
+}
+
+.title {
+   color: #333;
+   margin-bottom: 20px;
+}
+
+.subtitle {
+   color: #666;
+}
+
+.temp {
+   font-size: 24px;
+   color: #ff6347;
+}
