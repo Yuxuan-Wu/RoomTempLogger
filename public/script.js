@@ -1,15 +1,24 @@
+realtimeTemp = document.getElementById('temperature');
+realtimeHumidity = document.getElementById('humidity');
+
 var source = new EventSource('/temperature');
 source.onmessage = function (event) {
-	var temp = event.data;
-	document.getElementById('temperature').innerHTML = temp;
+	var sensorData = JSON.parse(event.data);
+	var temp = sensorData.temperature;
+	var humidity = sensorData.humidity;
+
+	realtimeTemp.innerHTML = temp;
+	realtimeHumidity.innerHTML = humidity;
+
 	if (temp < 20) {
-		document.getElementById('temperature').style.color = 'blue';
+		realtimeTemp.style.color = 'blue';
 	} else if (temp > 30) {
-		document.getElementById('temperature').style.color = 'red';
+		realtimeTemp.style.color = 'red';
 	} else {
-		document.getElementById('temperature').style.color = 'orange';
+		realtimeTemp.style.color = 'orange';
 	}
 };
+
 
 function toggleView() {
 	var currentView = document.getElementById("currentTempView");

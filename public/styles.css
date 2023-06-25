@@ -1,5 +1,5 @@
 body {
-   font-family: Arial, sans-serif;
+   font-family: 'Roboto', sans-serif;
    margin: 0;
    padding: 0;
    background-color: #f4f4f4;
@@ -8,12 +8,17 @@ body {
 .container {
    width: 80%;
    margin: 0 auto;
+   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+   background: white;
+   border-radius: 5px;
+   overflow: hidden;
 }
 
 .title {
    color: #333;
    text-align: center;
    padding: 50px 0;
+   border-bottom: 1px solid #eee;
 }
 
 button {
@@ -23,22 +28,34 @@ button {
    margin: 20px auto;
    background-color: #3498db;
    color: #ffffff;
+   border: none;
    border-radius: 5px;
    text-align: center;
    line-height: 45px;
    font-size: 18px;
    transition: all 0.3s ease-in-out;
+   cursor: pointer;
 }
 
 button:hover {
    background-color: #2980b9;
+   transform: scale(1.02);
 }
 
 .subtitle,
-.temp {
+.data {
    text-align: center;
+   color: #333;
+   margin-bottom: 15px;
 }
 
-#temperature {
-   font-size: 2em;
+.subtitle {
+   font-size: 1.2em;
+   font-weight: 500;
+}
+
+#temperature,
+#humidity {
+   font-size: 1.5em;
+   font-weight: 500;
 }

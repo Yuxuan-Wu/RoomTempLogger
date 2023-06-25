@@ -4,6 +4,7 @@
 <head>
 	<title>Room Temperature Logger</title>
 	<link rel="stylesheet" type="text/css" href="/styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -12,7 +13,8 @@
 		<button id="toggleButton" onclick="toggleView()">Switch to History View</button>
 		<div id="currentTempView">
 			<p class="subtitle">Current temperature:</p>
-			<p class="temp"><span id="temperature">N/A</span> degrees</p>
+			<p class="data">Temperature: <span id="temperature">N/A</span> °C</p>
+			<p class="data">Humidity: <span id="humidity">N/A</span> %</p>
 		</div>
 		<div id="historyView" style="display: none;">
 			<canvas id="tempChart"></canvas>

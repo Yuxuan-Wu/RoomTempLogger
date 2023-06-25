@@ -6,12 +6,12 @@ const port = 8080;
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-/** Temperature reader */
-let temperature = 'N/A';
+/** DHT reader */
+const dht_reader = spawn('python3', ['./dht_reader.py'], { stdio: ['inherit', 'pipe', 'inherit', 'ipc'] });
+let sensorData = { temperature: 'N/A', humidity: 'N/A' };
 
-const python = spawn('python3', ['./temp_reader.py'], { stdio: ['inherit', 'pipe', 'inherit', 'ipc'] });
-python.stdout.on('data', (data) => {
-	temperature = data.toString().trim();
+dht_reader.stdout.on('data', (data) => {
+	sensorData = JSON.parse(data);
 });
 
 /** Routes */
@@ -24,7 +24,7 @@ app.get('/temperature', (req, res) => {
 	res.setHeader('Cache-Control', 'no-cache');
 	res.setHeader('Connection', 'keep-alive');
 	setInterval(() => {
-		res.write(`data: ${temperature}\n\n`);
+		res.write(`data: ${JSON.stringify(sensorData)}\n\n`);
 	}, 1000);
 });
 
