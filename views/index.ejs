@@ -5,22 +5,23 @@
 	<title>Room Temperature Logger</title>
 	<link rel="stylesheet" type="text/css" href="/styles.css">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body>
 	<div class="container">
 		<h1 class="title">Room Temperature Logger</h1>
 		<button id="toggleButton" onclick="toggleView()">Switch to History View</button>
-		<div id="currentTempView">
+		<div id="currentDataView">
 			<p class="subtitle">Current temperature:</p>
 			<p class="data">Temperature: <span id="temperature">N/A</span> °C</p>
 			<p class="data">Humidity: <span id="humidity">N/A</span> %</p>
 		</div>
 		<div id="historyView" style="display: none;">
-			<canvas id="tempChart"></canvas>
+			<div id="temperatureView" style="width: 50%; float: left;"></div>
+			<div id="humidityView" style="width: 50%; float: right;"></div>
 		</div>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="./script.js"></script>
 </body>
 
