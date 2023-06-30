@@ -2,7 +2,7 @@
 const express = require('express');
 const { spawn } = require('child_process');
 const app = express();
-const port = 8080;
+const port = 8000;
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
